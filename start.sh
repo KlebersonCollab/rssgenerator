@@ -22,7 +22,7 @@ uv run main.py &
 UVICORN_PID=$!
 
 echo "Iniciando a interface Streamlit em background..."
-streamlit run app.py &
+streamlit run app.py --server.port 8501 &
 STREAMLIT_PID=$!
 
 echo "Servidor FastAPI rodando com PID: $UVICORN_PID"
