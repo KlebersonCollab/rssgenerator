@@ -6,7 +6,7 @@ After=network.target
 User=root
 Group=root
 WorkingDirectory=/root/rssgenerator
-ExecStart=/root/rssgenerator/.venv/bin/uv run main.py
+ExecStart=/root/rssgenerator/.venv/bin/uvicorn rss_api:app --host 0.0.0.0 --port 8000
 Restart=always
 RestartSec=5
 
