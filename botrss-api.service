@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=root
 Group=root
-WorkingDirectory=/rssgenerator
-ExecStart=/rssgenerator/.venv/bin/uv run main.py
+WorkingDirectory=/root/rssgenerator
+ExecStart=/root/rssgenerator/.venv/bin/uv run main.py
 Restart=always
 RestartSec=5
 
