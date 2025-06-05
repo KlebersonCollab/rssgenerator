@@ -6,7 +6,7 @@ After=network.target
 User=root
 Group=root
 WorkingDirectory=/root/rssgenerator
-ExecStart=/root/rssgenerator/.venv/bin/streamlit run app.py --server.port 8501 --server.headless true
+ExecStart=/root/rssgenerator/.venv/bin/streamlit run app.py --server.port 8501 --server.headless true --server.enableCORS=false --server.address=127.0.0.1
 Restart=always
 RestartSec=5
 
