@@ -1,5 +1,6 @@
 # app.py
 import streamlit as st
+import os  # Adicionado
 from database import init_db, inserir_site, listar_sites, atualizar_site, excluir_site
 
 init_db()
@@ -102,7 +103,9 @@ else:
         with col_intervalo:
             st.write(str(intervalo_min))
         with col_feed:
-            st.code(f"http://localhost:8000/rss?site_id={site_id}", language="bash")
+            # Usa uma variável de ambiente para o host da API, com fallback para localhost
+            api_host = os.environ.get("API_HOST", "http://localhost:8000")
+            st.code(f"{api_host}/rss?site_id={site_id}", language="bash")
         
         with col_botoes:
             col_edit_btn, col_del_btn = st.columns(2)

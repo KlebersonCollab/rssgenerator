@@ -88,6 +88,26 @@ Para rodar a aplicação de forma persistente em um servidor, a melhor abordagem
     WantedBy=multi-user.target
     ```
 
+    **Exemplo de arquivo `botrss-streamlit.service` configurado:**
+    ```ini
+    [Unit]
+    Description=BotRSS Streamlit UI
+    After=network.target
+
+    [Service]
+    User=rssuser
+    Group=rssuser
+    WorkingDirectory=/home/rssuser/botrss
+    # Defina a URL pública da sua API aqui
+    Environment="API_HOST=http://seu-dominio.com:8000" 
+    ExecStart=/home/rssuser/botrss/.venv/bin/streamlit run app.py --server.port 8501 --server.headless true
+    Restart=always
+    RestartSec=5
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
 2.  **Instale os serviços**:
     Copie os arquivos configurados para o diretório do `systemd`.
     ```bash
@@ -115,6 +135,8 @@ Para rodar a aplicação de forma persistente em um servidor, a melhor abordagem
     -   Verificar o status: `sudo systemctl status botrss-api.service`
     -   Ver logs em tempo real: `sudo journalctl -u botrss-api.service -f`
     -   Reiniciar um serviço: `sudo systemctl restart botrss-api.service`
+    -   Ver logs em tempo real: `sudo journalctl -u botrss-streamlit.service -f`
+    -   Reiniciar um serviço: `sudo systemctl restart botrss-streamlit.service`
 
 ## 💻 Uso da Aplicação
 
