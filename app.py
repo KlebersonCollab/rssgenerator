@@ -104,7 +104,7 @@ else:
             st.write(str(intervalo_min))
         with col_feed:
             # Usa uma variável de ambiente para o host da API, com fallback para localhost
-            api_host = os.environ.get("API_HOST", "http://localhost:8000")
+            api_host = os.environ.get("API_HOST", "https://apirss.romerosolutions.com.br")
             st.code(f"{api_host}/rss?site_id={site_id}", language="bash")
         
         with col_botoes:

@@ -6,7 +6,7 @@ After=network.target
 User=root
 Group=root
 WorkingDirectory=/root/rssgenerator
-Environment="API_HOST=http://rssgenerator.romerosolutions.com.br:8000"
+Environment="API_HOST=https://apirss.romerosolutions.com.br/"
 ExecStart=/root/rssgenerator/.venv/bin/streamlit run app.py --server.port 8501 --server.headless true --server.enableCORS=false --server.address=0.0.0.0
 Restart=always
 RestartSec=5
