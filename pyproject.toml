@@ -1,0 +1,14 @@
+[project]
+name = "botrss"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "fastapi>=0.115.12",
+    "feedgen>=1.0.0",
+    "requests>=2.32.3",
+    "streamlit>=1.45.1",
+    "uvicorn>=0.34.3",
+]
